@@ -1,0 +1,16 @@
+Peso_del_ejercicio = float(input("Ingresa peso del ejercicio")) 
+Numero_de_series = int(input("Ingresa el numero de series del ejercicio"))
+Numero_de_repeticiones = int(input("Ingresa el numero de repeticiones"))
+
+if Peso_del_ejercicio >0 and Numero_de_series>0 and Numero_de_repeticiones > 0:
+    print ("Dato guardado correctamente")
+    Volumen_total =  Peso_del_ejercicio * Numero_de_series * Numero_de_repeticiones
+    Repeticion_max = ((Numero_de_repeticiones / 30) + 1 ) * Peso_del_ejercicio
+    Repeticiones_totales = (Numero_de_series * Numero_de_repeticiones)
+
+    print("El volmen total del ejercio fue de" , Volumen_total , "el 1RM es de" , Repeticion_max , "y el numero de repeticiones totales es de" , Repeticiones_totales)
+else: 
+    print("Dato no valido")  
+
+
+
