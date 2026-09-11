@@ -1,0 +1,44 @@
+def volumen_total(p_ejercicio,num_series,num_rep):
+    if p_ejercicio > 0 and num_series > 0 and num_rep > 0 :
+        v_total = p_ejercicio * num_series * num_rep
+        return v_total
+    else :
+        print("Dato no valido") 
+
+
+def repeticion_max(num_rep,p_ejercicio):
+    if num_rep > 0 and p_ejercicio > 0 :
+        r_max = ((num_rep / 30) + 1) * p_ejercicio
+        return r_max
+    else : 
+       print("Dato no valido")  
+
+def repeticiones_totales(num_series,num_rep):
+    if num_series > 0 and num_rep > 0 :
+        rep_totales = (num_series * num_rep)
+        return rep_totales
+    else :
+        print("Dato no valido")  
+
+print("1. Calcular Volumen Total")
+print("2. Calcular 1RM")
+print("3. Calcular Repeticiones Totales")
+opcion = int(input("Elige una opción (1, 2 o 3): "))
+if(opcion == 1):
+    p_ejercicio = float(input("Ingresa peso del ejercicio: "))
+    num_series = int(input("Ingresa el numero de series del ejercicio: "))
+    num_rep = int(input("Ingresa el numero de repeticiones: "))
+    print("El volmen total del ejercio fue de" , volumen_total(p_ejercicio,num_series,num_rep))
+elif(opcion == 2):
+    num_rep  = int(input("Ingresa el numero de repeticiones: "))
+    p_ejercicio = float(input("Ingresa peso del ejercicio: "))
+    print ("El 1RM es de" , repeticion_max(num_rep,p_ejercicio))
+elif(opcion == 3):
+    num_series = int(input("Ingresa el numero de series del ejercicio: "))
+    num_rep = int(input("Ingresa el numero de repeticiones: "))
+    print("el numero de repeticiones totales es de" , repeticiones_totales(num_series,num_rep))
+else:
+    print("entrada no valida")
+
+
+
