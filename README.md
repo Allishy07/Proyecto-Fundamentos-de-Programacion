@@ -5,4 +5,34 @@ Para el desarrollo de fuerza y el entrenamiento basado en la hipertrofia es impr
 
 En este proyecto se espera realizar un gestor de rutinas de levantamiento de pesas diseñado para registrar y analizar el progreso físico del usuario. Este proyecto resulta particularmente interesante porque transforma un registro manual a un modelo computacional estructurado, que se convierte en una utilidad genuina. Cualquier persona enfocada en el acondicionamiento físico puede integrarlo en su día a día para medir y optimizar su progresión real en el gimnasio. 
 ## Algoritmo
-https://docs.google.com/document/d/1eKf_rVWyyv__dWGrUzbFUACP5ksYu_G8y324XD03W2o/edit?usp=sharing
+Entrada
+-Ejercicios 
+-Peso del ejercicio
+-Número de series 
+-Número de repeticiones
+Proceso
+Inicio
+Iniciar una lista vacía llamada “Rutina del dia”
+Definir variable Continuar “Sí"  
+Mientras continuar sea igual a “Sí” 
+Insertar nombre del ejercicio 
+Guardar nombre del ejercicio
+Insertar peso del ejercicio 
+Guardar peso del ejercicio
+Insertar número de series 
+Guardar número de series 
+Insertar el número de repeticiones 
+Guardar número de repeticiones
+Agrupar los datos (nombre del ejercicio, peso del ejercicio, número de series, número de repeticiones) en “Registro Actual” 
+Guardar “Registro Actual” a “Rutina del día”
+Preguntar al usuario si desea agregar otro ejercicio al split de hoy 
+Si es que “Si” repetir el proceso 
+Si es que “No” continuar 
+Fin del ciclo 
+Guardar el contenido de Rutina del dia 
+Fin   
+ 
+
+Salida  
+Resumen de los ejercicios realizados, cargas utilizadas para la sesión 
+
