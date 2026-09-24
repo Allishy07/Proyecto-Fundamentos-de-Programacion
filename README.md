@@ -14,9 +14,9 @@ En este proyecto se espera realizar un gestor de rutinas de levantamiento de pes
 ## Proceso
 
 **Inicio**
-1. Iniciar una lista vacía llamada `Rutina del dia`.
-2. Definir variable `Continuar = "Sí"`.
-3. **Mientras** `Continuar` sea igual a `"Sí"`:
+1. Iniciar una lista vacía llamada Rutina del dia.
+2. Definir variable `Continuar = "Sí".
+3. **Mientras** `Continuar` sea igual a "Sí":
    - Insertar nombre del ejercicio.
    - Guardar nombre del ejercicio.
    - Insertar peso del ejercicio.
@@ -25,11 +25,11 @@ En este proyecto se espera realizar un gestor de rutinas de levantamiento de pes
    - Guardar número de series.
    - Insertar el número de repeticiones.
    - Guardar número de repeticiones.
-   - Agrupar los datos *(nombre del ejercicio, peso, series, repeticiones)* en `Registro Actual`.
-   - Guardar `Registro Actual` a `Rutina del día`.
+   - Agrupar los datos (nombre del ejercicio, peso, series, repeticiones) en Registro Actual.
+   - Guardar Registro Actual a Rutina del día.
    - Preguntar al usuario si desea agregar otro ejercicio al split de hoy.
-     - *Si es "Sí":* repetir el proceso.
-     - *Si es "No":* continuar.
+     - Si es "Sí": repetir el proceso.
+     - Si es "No": continuar.
 4. **Fin del ciclo**.
 5. Guardar el contenido de `Rutina del dia`.
 
