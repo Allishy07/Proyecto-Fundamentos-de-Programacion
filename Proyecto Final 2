@@ -1,7 +1,7 @@
 def pedir_positivo(mensaje):
     valor = float(input(mensaje))
     while valor <= 0:
-        print("Error: El valor debe ser mayor a 0. Intenta de nuevo.")
+        print("Error: El valor debe ser mayor a 0. Intenta de nuevo")
         valor = float(input(mensaje))
     return valor
 
@@ -16,19 +16,31 @@ def repeticion_max(num_rep, p_ejercicio):
 def repeticiones_totales(num_series, num_rep):
     return num_series * num_rep 
 
+rutina_actual = []
 opcion = 0
-while opcion != 4:
+while opcion != 5:
     print("GESTOR DE RUTINAS")
     print("1. Calcular Volumen Total")
     print("2. Calcular 1RM")
     print("3. Calcular Repeticiones Totales")
-    print("4. Salir")
-    opcion = int(pedir_positivo("Elige una opción (1, 2 , 3, 4): "))
+    print("4. Ver mi rutina de hoy")
+    print("5. Salir")
+    opcion = int(pedir_positivo("Elige una opción (1, 2 , 3, 4, 5): "))
     if(opcion == 1):
+        nombre = input("Nombre del ejerecicio: ")
         p_ejercicio = pedir_positivo("Ingresa peso del ejercicio: ")
+        unidad = input("¿El peso es en 'kg' o 'lb'?: ")
+        if unidad == "lb":
+            peso_en_kg = p_ejercicio * 0.453592
+        else:
+            peso_en_kg = p_ejercicio
+            unidad = "kg"
         num_series = int(pedir_positivo("Ingresa el numero de series del ejercicio: "))
         num_rep = int(pedir_positivo("Ingresa el numero de repeticiones: "))
-        print("El volmen total del ejercio fue de" , volumen_total(p_ejercicio,num_series,num_rep))
+        volumen = volumen_total(peso_en_kg ,num_series, num_rep)
+        print("El volmen total del ejercio fue de" , volumen)
+        ejercicio = [nombre, peso_en_kg, num_series, num_rep]
+        rutina_actual.append(ejercicio)
     elif(opcion == 2):
         num_rep  = int(pedir_positivo("Ingresa el numero de repeticiones: "))
         p_ejercicio = pedir_positivo("Ingresa peso del ejercicio: ")
@@ -37,6 +49,14 @@ while opcion != 4:
         num_series = int(pedir_positivo("Ingresa el numero de series del ejercicio: "))
         num_rep = int(pedir_positivo("Ingresa el numero de repeticiones: "))
         print("el numero de repeticiones totales es de" , repeticiones_totales(num_series,num_rep))
+    elif(opcion == 4):
+        if len(rutina_actual) == 0:
+            print("Todavía no has agregado ningún ejercicio")
+        else:
+            for ejercicio in rutina_actual:
+                print(ejercicio)
+    elif opcion == 5:
+        print("Saliendo")
     else:
         print("entrada no valida")
 
