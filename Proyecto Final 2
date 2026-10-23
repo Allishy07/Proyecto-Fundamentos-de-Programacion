@@ -8,57 +8,99 @@ def pedir_positivo(mensaje):
 def volumen_total(p_ejercicio, num_series, num_rep):
     return p_ejercicio * num_series * num_rep
 
-
 def repeticion_max(num_rep, p_ejercicio):
     return ((num_rep / 30) + 1) * p_ejercicio
-
 
 def repeticiones_totales(num_series, num_rep):
     return num_series * num_rep 
 
 rutina_actual = []
 opcion = 0
-while opcion != 5:
-    print("GESTOR DE RUTINAS")
-    print("1. Calcular Volumen Total")
+
+while opcion != 6:
+    print("\nGESTOR DE RUTINAS")
+    print("1. Agregar Ejercicio")
     print("2. Calcular 1RM")
     print("3. Calcular Repeticiones Totales")
     print("4. Ver mi rutina de hoy")
-    print("5. Salir")
-    opcion = int(pedir_positivo("Elige una opción (1, 2 , 3, 4, 5): "))
-    if(opcion == 1):
-        nombre = input("Nombre del ejerecicio: ")
+    print("5. Editar un ejercicio ")
+    print("6. Salir")
+    
+    opcion = int(pedir_positivo("Elige una opcion (1-6): "))
+    
+    if opcion == 1:
+        nombre = input("Nombre del ejercicio: ")
         p_ejercicio = pedir_positivo("Ingresa peso del ejercicio: ")
-        unidad = input("¿El peso es en 'kg' o 'lb'?: ")
+        unidad = input("El peso es en 'kg' o 'lb'?: ")
+        
         if unidad == "lb":
             peso_en_kg = p_ejercicio * 0.453592
         else:
             peso_en_kg = p_ejercicio
             unidad = "kg"
+            
         num_series = int(pedir_positivo("Ingresa el numero de series del ejercicio: "))
         num_rep = int(pedir_positivo("Ingresa el numero de repeticiones: "))
-        volumen = volumen_total(peso_en_kg ,num_series, num_rep)
-        print("El volmen total del ejercio fue de" , volumen)
-        ejercicio = [nombre, peso_en_kg, num_series, num_rep]
+        
+        volumen = volumen_total(peso_en_kg, num_series, num_rep)
+        print("El volmen total del ejercio fue de", volumen)
+        
+        ejercicio = [nombre, peso_en_kg, num_series, num_rep, volumen]
         rutina_actual.append(ejercicio)
-    elif(opcion == 2):
+        
+    elif opcion == 2:
         num_rep  = int(pedir_positivo("Ingresa el numero de repeticiones: "))
         p_ejercicio = pedir_positivo("Ingresa peso del ejercicio: ")
-        print ("El 1RM es de" , repeticion_max(num_rep,p_ejercicio))
-    elif(opcion == 3):
+        print("El 1RM es de", repeticion_max(num_rep, p_ejercicio))
+        
+    elif opcion == 3:
         num_series = int(pedir_positivo("Ingresa el numero de series del ejercicio: "))
         num_rep = int(pedir_positivo("Ingresa el numero de repeticiones: "))
-        print("el numero de repeticiones totales es de" , repeticiones_totales(num_series,num_rep))
-    elif(opcion == 4):
+        print("El numero de repeticiones totales es de", repeticiones_totales(num_series, num_rep))
+        
+    elif opcion == 4:
         if len(rutina_actual) == 0:
-            print("Todavía no has agregado ningún ejercicio")
+            print("Todavia no has agregado ningun ejercicio")
         else:
-            for ejercicio in rutina_actual:
-                print(ejercicio)
+            for i in range(len(rutina_actual)):
+               
+                print(f"[{i}] {rutina_actual[i]}")
+                
     elif opcion == 5:
+        if len(rutina_actual) == 0:
+            print("No hay ejercicios para editar")
+        else:
+            
+            for i in range(len(rutina_actual)):
+                print(f"[{i}] {rutina_actual[i][0]}")
+                
+            fila = int(pedir_positivo("Ingresa el numero del ejercicio a editar: "))
+            
+            if fila < len(rutina_actual):
+                print("1. Peso")
+                print("2. Series")
+                print("3. Repeticiones")
+                columna = int(pedir_positivo("Que dato quieres editar? (1-3): "))
+                
+                if columna in [1, 2, 3]:
+                    nuevo_valor = pedir_positivo("Ingresa el nuevo valor: ")
+                    
+                    rutina_actual[fila][columna] = nuevo_valor
+                    nuevo_peso = rutina_actual[fila][1]
+                    nuevas_series = rutina_actual[fila][2]
+                    nuevas_reps = rutina_actual[fila][3]
+                    
+                    rutina_actual[fila][4] = volumen_total(nuevo_peso, nuevas_series, nuevas_reps)
+                    print("Ejercicio actualizado correctamente")
+                else:
+                    print("Opcion no valida")
+            else:
+                print("Numero de ejercicio no valido")
+                
+    elif opcion == 6:
         print("Saliendo")
+        
     else:
-        print("entrada no valida")
-
+        print("Entrada no valida")
 
 
