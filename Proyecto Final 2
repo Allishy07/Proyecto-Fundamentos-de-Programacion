@@ -1,3 +1,13 @@
+def limpiar_nombre_ejercicio(nombre):
+    caracteres_validos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ áéíóúÁÉÍÓÚñÑ"
+    nombre_limpio = ""
+    for caracter in nombre:
+        if caracter in caracteres_validos:
+            nombre_limpio += caracter
+            
+    
+    return nombre_limpio.strip().title()
+
 def pedir_positivo(mensaje):
     valor = float(input(mensaje))
     while valor <= 0:
@@ -29,9 +39,12 @@ while opcion != 6:
     opcion = int(pedir_positivo("Elige una opcion (1-6): "))
     
     if opcion == 1:
-        nombre = input("Nombre del ejercicio: ")
+        nombre_crudo = input("Nombre del ejercicio: ")
+        nombre = limpiar_nombre_ejercicio(nombre_crudo)
+        
         p_ejercicio = pedir_positivo("Ingresa peso del ejercicio: ")
-        unidad = input("El peso es en 'kg' o 'lb'?: ")
+        
+        unidad = input("El peso es en 'kg' o 'lb'?: ").strip().lower()
         
         if unidad == "lb":
             peso_en_kg = p_ejercicio * 0.453592
@@ -43,7 +56,7 @@ while opcion != 6:
         num_rep = int(pedir_positivo("Ingresa el numero de repeticiones: "))
         
         volumen = volumen_total(peso_en_kg, num_series, num_rep)
-        print("El volmen total del ejercio fue de", volumen)
+        print("El volumen total del ejercicio fue de", volumen)
         
         ejercicio = [nombre, peso_en_kg, num_series, num_rep, volumen]
         rutina_actual.append(ejercicio)
